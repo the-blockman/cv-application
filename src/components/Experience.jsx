@@ -41,7 +41,7 @@ function Experience() {
       <>
         {experience.map((work, index) => {
           return (
-            <div key={index}>
+            <div key={index} className="entry">
               <label htmlFor={`name-${index}`}>
                 Company Name:
                 <input
@@ -106,7 +106,9 @@ function Experience() {
           );
         })}
         <button onClick={addNew}>Add another experience</button>
-        <button onClick={() => setMode("display")}>submit</button>
+        <button className="primary" onClick={() => setMode("display")}>
+          submit
+        </button>
       </>
     );
   }
@@ -116,7 +118,7 @@ function Experience() {
       <>
         {experience.map((work, index) => {
           return (
-            <div key={index}>
+            <div key={index} className="entry">
               <h3>{work.companyName}</h3>
               <h5>{work.title}</h5>
               <p>{work.mainResponsibilities}</p>
@@ -131,7 +133,7 @@ function Experience() {
   }
 
   return (
-    <div>
+    <div className="experience">
       <h1>Work Experience</h1>
       {mode === "edit" ? renderForm() : renderDisplay()}
     </div>

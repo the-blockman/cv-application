@@ -75,7 +75,7 @@ function GeneralInfo() {
   }
 
   return (
-    <div>
+    <div className="general-info">
       <h1>General Info</h1>
       {mode === "edit" ? renderForm() : renderDisplay()}
     </div>

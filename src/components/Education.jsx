@@ -28,7 +28,7 @@ function Education() {
       <>
         {education.map((detail, index) => {
           return (
-            <div key={index}>
+            <div key={index} className="entry">
               <h3>{detail.school}</h3>
               <p>{detail.study}</p>
               <p>{detail.date}</p>
@@ -45,7 +45,7 @@ function Education() {
       <>
         {education.map((details, index) => {
           return (
-            <div key={index}>
+            <div key={index} className="entry">
               <label htmlFor={`School-${index}`}>
                 School:
                 <input
@@ -80,16 +80,18 @@ function Education() {
           );
         })}
         <button onClick={addEntry}>Add another school</button>
-        <button onClick={() => setMode("display")}>submit</button>
+        <button className="primary" onClick={() => setMode("display")}>
+          submit
+        </button>
       </>
     );
   }
 
   return (
-    <>
+    <div className="education">
       <h1>Education</h1>
       {mode === "edit" ? renderForm() : renderDisplay()}
-    </>
+    </div>
   );
 }
 
