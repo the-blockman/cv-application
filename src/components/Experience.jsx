@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/experience.css";
 
 function Experience() {
   const [experience, setExperience] = useState([
