@@ -48,6 +48,7 @@ function GeneralInfo() {
         </label>
         <button
           onClick={() => {
+            if (hasEmptyFields()) return;
             setMode("display");
           }}
         >
@@ -72,6 +73,10 @@ function GeneralInfo() {
         </button>
       </>
     );
+  }
+
+  function hasEmptyFields() {
+    return Object.values(generalInfo).some((value) => value === "");
   }
 
   return (
