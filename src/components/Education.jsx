@@ -93,11 +93,23 @@ function Education({ education, setEducation }) {
           );
         })}
         <button onClick={addEntry}>Add another school</button>
-        <button className="primary" onClick={() => setMode("display")}>
+        <button
+          className="primary"
+          onClick={() => {
+            if (hasEmptyFields()) return;
+            setMode("display");
+          }}
+        >
           submit
         </button>
       </>
     );
+  }
+
+  function hasEmptyFields() {
+    return education.some((entry) => {
+      return Object.values(entry).some((value) => value === "");
+    });
   }
 
   return (

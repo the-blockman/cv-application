@@ -113,7 +113,13 @@ function Experience({ experience, setExperience }) {
           );
         })}
         <button onClick={addNew}>Add another experience</button>
-        <button className="primary" onClick={() => setMode("display")}>
+        <button
+          className="primary"
+          onClick={() => {
+            if (hasEmptyFields()) return;
+            setMode("display");
+          }}
+        >
           submit
         </button>
       </>
@@ -137,6 +143,12 @@ function Experience({ experience, setExperience }) {
         <button onClick={() => setMode("edit")}>edit</button>
       </>
     );
+  }
+
+  function hasEmptyFields() {
+    return experience.some((entry) => {
+      return Object.values(entry).some((value) => value === "");
+    });
   }
 
   return (
