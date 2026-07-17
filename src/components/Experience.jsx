@@ -1,16 +1,7 @@
-import { useState } from "react";
 import "../styles/experience.css";
+import { useState } from "react";
 
-function Experience() {
-  const [experience, setExperience] = useState([
-    {
-      companyName: "",
-      title: "",
-      mainResponsibilities: "",
-      dateFrom: "",
-      dateUntil: "",
-    },
-  ]);
+function Experience({ experience, setExperience }) {
   const [mode, setMode] = useState("edit");
 
   function handleChange(e, index) {
@@ -34,6 +25,16 @@ function Experience() {
     };
 
     setExperience([...experience, newExperience]);
+  }
+
+  function deleteEntry(index) {
+    if (experience.length === 1) {
+      return;
+    }
+    const updatedExperience = experience.filter((entry, i) => {
+      return i !== index;
+    });
+    setExperience(updatedExperience);
   }
 
   function renderForm() {
@@ -102,6 +103,12 @@ function Experience() {
                   }}
                 />
               </label>
+              <button
+                className={experience.length === 1 ? "disabled" : ""}
+                onClick={() => deleteEntry(index)}
+              >
+                delete
+              </button>
             </div>
           );
         })}

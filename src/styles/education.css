@@ -80,3 +80,7 @@
 .education button.primary:hover {
   background-color: #1d4ed8;
 }
+
+.education button.disabled {
+  display: none;
+}

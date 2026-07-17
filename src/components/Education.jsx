@@ -1,10 +1,7 @@
 import { useState } from "react";
 import "../styles/education.css";
 
-function Education() {
-  const [education, setEducation] = useState([
-    { school: "", study: "", date: "" },
-  ]);
+function Education({ education, setEducation }) {
   const [mode, setMode] = useState("edit");
 
   function handleChange(e, index) {
@@ -21,6 +18,16 @@ function Education() {
   function addEntry() {
     const newEntry = { school: "", study: "", date: "" };
     setEducation([...education, newEntry]);
+  }
+
+  function deleteEntry(index) {
+    if (education.length === 1) {
+      return;
+    }
+    const updatedEducation = education.filter((entry, i) => {
+      return i !== index;
+    });
+    setEducation(updatedEducation);
   }
 
   function renderDisplay() {
@@ -76,6 +83,12 @@ function Education() {
                   onChange={(e) => handleChange(e, index)}
                 />
               </label>
+              <button
+                className={education.length === 1 ? "disabled" : ""}
+                onClick={() => deleteEntry(index)}
+              >
+                delete
+              </button>
             </div>
           );
         })}

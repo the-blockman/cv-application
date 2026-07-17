@@ -87,3 +87,7 @@
 .experience button.primary:hover {
   background-color: #1d4ed8;
 }
+
+.experience button.disabled {
+  display: none;
+}
