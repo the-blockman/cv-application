@@ -1,16 +1,62 @@
-# React + Vite
+# CV Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React app for building a CV/résumé. Fill in your general info, education, and work experience, and each section can be edited and submitted independently.
 
-Currently, two official plugins are available:
+**Live demo:** [https://cv-application-daj.pages.dev/](https://cv-application-daj.pages.dev/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **General Info** section for name, email, and phone number
+- **Education** section supporting multiple entries (school, study, date)
+- **Work Experience** section supporting multiple entries (company name, title, main responsibilities, date from/until)
+- Edit and submit toggle for each section — submitted data displays as read-only text, with an edit button to bring back the form
+- Add and delete entries for Education and Work Experience
+- Basic validation — sections can't be submitted while any field is empty
+- Deployed with Cloudflare Pages
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- Plain CSS (per-component stylesheets)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Running Locally
+
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/the-blockman/cv-application.git
+cd cv-application
+npm install
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`.
+
+## Build
+
+```bash
+npm run build
+```
+
+This outputs a production-ready build to the `dist` folder.
+
+## Project Structure
+
+```
+src/
+  components/
+    GeneralInfo.jsx
+    Education.jsx
+    Experience.jsx
+  styles/
+    GeneralInfo.css
+    Education.css
+    Experience.css
+  App.jsx
+  main.jsx
+```
+
+## About
+
+This project was built as part of [The Odin Project](https://www.theodinproject.com/lessons/node-path-react-new-cv-application) React curriculum, focused on practicing component composition, controlled forms, conditional rendering, and state management with `useState` and props.
